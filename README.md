@@ -15,6 +15,8 @@
       - 예시
         - ```com.cmbookrental.prj.dto``` 패키지
           - ```ComicBookDTO```, ```RentalDTO```
+        - ```com.cmbookrental.prj.controller``` 패키지
+          - ```ComicBookController```, ```RentalController```
         - ```com.cmbookrental.prj.repository``` 패키지
           - ```ComicBookRepository```, ```RentalRepository```
         - ```com.cmbookrental.prj.app``` 패키지
