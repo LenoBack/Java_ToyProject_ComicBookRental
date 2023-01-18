@@ -1,17 +1,24 @@
-# SMBE2-Java_ToyProject_BookRentalSystem
+# SMBE4-Java_ToyProject_BookRentalSystem
 
 ### 자바 토이프로젝트 만화책 대여 관리 시스템 <br/><br/>
 
 - 파일 이름 작성법 
-    - ````me.smartstore.project```` 패키지 생성
-    - 도메인별로 패키지를 나눠서 관련 클래스끼리 함께 패키지화
+    - ````com.cmbookrental.prj```` 패키지 생성
+    - 패키지 구조는 아래와 같이 진행하도록 한다
+      - ````app```` : Main Application (Menu 처리 및 View 처리용)
+      - ````comm```` : 공통코드와 Utility
+      - ````dto```` : 데이터 저장 클래스 
+      - ````factory```` : 객체 생생 팩토리 클래스
+      - ````controller```` : 클라이언트 요청/응답 처리 컨트롤 및 비즈니스 처리
+      - ````repository```` :  데이터 처리 관련 클래스 (조회/저장/수정/삭제)
+    - 각 Role별로 패키지를 나눠서 관련 클래스끼리 함께 패키지화
       - 예시
-        - ```me.smartstore.project.smartstore.customers``` 패키지
-          - ```Customer```, ```Customers```
-        - ```me.smartstore.project.group``` 패키지
-          - ```Group```, ```Groups```, ```Parameter```, ```GroupType (Enum형)```
-        - ```me.smartstore.project.menu``` 패키지
-          - ```Menu```, ```CustomerMenu```, ```GroupMenu```, ```SummaryMenu```, ```OrderType (Enum형)```
+        - ```com.cmbookrental.prj.dto``` 패키지
+          - ```ComicBookDTO```, ```RentalDTO```
+        - ```com.cmbookrental.prj.repository``` 패키지
+          - ```ComicBookRepository```, ```RentalRepository```
+        - ```com.cmbookrental.prj.app``` 패키지
+          - ```ComicBookRentalApp```
       
           
       
