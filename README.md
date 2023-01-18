@@ -16,7 +16,9 @@
         - ```com.cmbookrental.prj.dto``` 패키지
           - ```ComicBookDTO```, ```RentalDTO```
         - ```com.cmbookrental.prj.controller``` 패키지
-          - ```ComicBookController```, ```RentalController```
+          - interace ```ComicBookController```, ```RentalController```
+          - interace 구현 클래스는 인터페이스명+'Impl'을 붙이도록 Naming
+              - ```ComicBookControllerImpl```, ```RentalControllerImpl```
         - ```com.cmbookrental.prj.repository``` 패키지
           - ```ComicBookRepository```, ```RentalRepository```
         - ```com.cmbookrental.prj.app``` 패키지
