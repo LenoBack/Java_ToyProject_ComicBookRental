@@ -1,10 +1,12 @@
-package com.cmbookrental.prj.app;
+package com.cmbookrental.prj;
 
-public class ProgramStart {
+import com.cmbookrental.prj.app.ComicBookRentalApp;
+
+public class ComicBookRental_ProgramStart {
     public static void main(String[] args) throws Exception {
         ComicBookRentalApp ComicBookRentalSystem = new ComicBookRentalApp();
         ComicBookRentalSystem.comicBookDefaultData();
-//        ComicBookRentalSystem.customerDefaultData();
+        ComicBookRentalSystem.customerDefaultData();
         ComicBookRentalSystem.start();
     }
 }

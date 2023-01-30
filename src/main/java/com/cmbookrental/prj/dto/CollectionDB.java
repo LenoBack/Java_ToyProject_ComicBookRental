@@ -26,8 +26,8 @@ public class CollectionDB {
     public static Map<String, ArrayList> mDatabase = new HashMap<>();     // key값은 에서 만든 변수로 value는 Array리스트로 만든다.
     static {
         mDatabase.put("ComicBook", new ArrayList<ComicBookDTO>());
-        mDatabase.put("Rental", new ArrayList<RentalDTO>());
         mDatabase.put("Customer", new ArrayList<CustomerDTO>());
+        mDatabase.put("Rental", new ArrayList<RentalDTO>());
     }
 
     public static CollectionDB getInstance() {
@@ -48,12 +48,22 @@ public class CollectionDB {
         mDatabase.get("ComicBook").add(comicBookDTO);
     }
 
+    public void create(CustomerDTO customerDTO) {
+        customerDTO.setCustomerSerialNumber(CUSTOMER_ID++);
+        mDatabase.get("Customer").add(customerDTO);
+    }
+
     public ComicBookDTO search(ComicBookDTO comicBookDTO) {
         if (mDatabase.get("ComicBook").contains(comicBookDTO)) {
             return comicBookDTO;
         } else return null;
     }
 
+    public CustomerDTO search(CustomerDTO customerDTO) {
+        if (mDatabase.get("Customer").contains(customerDTO)) {
+            return customerDTO;
+        } else return null;
+    }
     //ComicBook Update
     public void update(ComicBookDTO comicBookDTO) {
         ArrayList<ComicBookDTO> list = mDatabase.get("ComicBook");
@@ -67,11 +77,24 @@ public class CollectionDB {
         }
     }
 
-
+    public void update(CustomerDTO customerDTO) {
+        ArrayList<CustomerDTO> list = mDatabase.get("Customer");
+        for (CustomerDTO CustomerUpdate : list) {
+            if (CustomerUpdate.getCustomerSerialNumber() == customerDTO.getCustomerSerialNumber()) {
+                CustomerUpdate.setCustomerID(customerDTO.getCustomerID());
+                CustomerUpdate.setCustomerName(customerDTO.getCustomerName());
+            }
+            return;
+        }
+    }
 
     //COmicBook Delete
     public void delete(ComicBookDTO comicBookDTO) {
         mDatabase.get("ComicBook").remove(comicBookDTO);
+    }
+
+    public void delete(CustomerDTO customerDTO) {
+        mDatabase.get("Customer").remove(customerDTO);
     }
 
 }
