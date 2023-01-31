@@ -41,8 +41,7 @@ public class CollectionDB {
         return mDatabase;
     }
 
-    //Comic Book CRUD (Create => Update => delete)
-    //ComicBook Crate
+   // Create Method
     public void create(ComicBookDTO comicBookDTO) {
         comicBookDTO.setBookId(COMIC_BOOK_ID++);
         mDatabase.get("ComicBook").add(comicBookDTO);
@@ -53,6 +52,12 @@ public class CollectionDB {
         mDatabase.get("Customer").add(customerDTO);
     }
 
+    public void create(RentalDTO rentalDTO) {
+        rentalDTO.setRentalID(RENTAL_ID++);
+        mDatabase.get("Rental").add(rentalDTO);
+    }
+
+    // Search Method
     public ComicBookDTO search(ComicBookDTO comicBookDTO) {
         if (mDatabase.get("ComicBook").contains(comicBookDTO)) {
             return comicBookDTO;
@@ -64,6 +69,7 @@ public class CollectionDB {
             return customerDTO;
         } else return null;
     }
+    
     //ComicBook Update
     public void update(ComicBookDTO comicBookDTO) {
         ArrayList<ComicBookDTO> list = mDatabase.get("ComicBook");
@@ -88,6 +94,18 @@ public class CollectionDB {
         }
     }
 
+    public void update(RentalDTO rentalDTO) {
+        ArrayList<RentalDTO> list = mDatabase.get("Rental");
+        for (RentalDTO RentalUpdate : list) {
+            if (RentalUpdate.getRentalID()== rentalDTO.getRentalID()) {
+                RentalUpdate.setBookTitle(rentalDTO.getBookTitle());
+                RentalUpdate.setCustomerName(rentalDTO.getCustomerName());
+                RentalUpdate.setRentalDate(rentalDTO.getRentalDate());
+            }
+            return;
+        }
+    }
+
     //COmicBook Delete
     public void delete(ComicBookDTO comicBookDTO) {
         mDatabase.get("ComicBook").remove(comicBookDTO);
@@ -97,6 +115,9 @@ public class CollectionDB {
         mDatabase.get("Customer").remove(customerDTO);
     }
 
+    public void delete(RentalDTO rentalDTO) {
+        mDatabase.get("Rental").remove(rentalDTO);
+    }
 }
 
 

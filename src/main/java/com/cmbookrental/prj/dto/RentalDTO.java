@@ -3,6 +3,7 @@ package com.cmbookrental.prj.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -10,11 +11,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RentalDTO {
-    // 대여 id
-    private int bookNo;
-    // 대여일
-    private LocalDate rentalData;
-    // 대여 만화책 정보
-    private ComicBookDTO comicBookDTO;
+
+    private int rentalID;
+    private String bookTitle;
+    private LocalDateTime rentalDate;
+    private String customerName;
 
 }

@@ -3,9 +3,11 @@ package com.cmbookrental.prj.factory;
 import com.cmbookrental.prj.comm.CommonCode;
 import com.cmbookrental.prj.controller.ComicBookControllerImpl;
 import com.cmbookrental.prj.controller.CustomerControllerImpl;
+import com.cmbookrental.prj.controller.RentalController;
 import com.cmbookrental.prj.repository.ComicBookRepositoryImpl;
 import com.cmbookrental.prj.repository.CommonRepository;
 import com.cmbookrental.prj.repository.CustomerRepositoryImpl;
+import com.cmbookrental.prj.repository.RentalRepositoryImpl;
 
 public class Factory {
 
@@ -28,6 +30,8 @@ public class Factory {
             repository = new ComicBookRepositoryImpl();
         } else if (type == CommonCode.CUSTOMER) {
             repository = new CustomerRepositoryImpl();
+        } else if (type == CommonCode.RENTAL) {
+            repository = new RentalRepositoryImpl();
         } else {
             return null;
         }
@@ -37,8 +41,12 @@ public class Factory {
     public ComicBookControllerImpl getComicBook() {
         return new ComicBookControllerImpl();
     }
+    public RentalRepositoryImpl getRental() {
+        return new RentalRepositoryImpl();
+    }
 
     public CustomerControllerImpl getCustomer() {
         return new CustomerControllerImpl();
     }
+
 }
